@@ -19,42 +19,21 @@
 	</script>
 <?php
 
-//Common BTC Network statistics that might be useful: https://api.blockchain.info/stats
-
-/** Fetches the balance of any given address in Satoshi notation.
- *  input: $address A bitcoin public key in string format.
- *  output: integer (eg: "44240914")
- */
-function getBalance($address) {
-    return file_get_contents('https://blockchain.info/de/q/addressbalance/'. $address);
-}
-
-/** Convert Satoshis to a string that can be displayed to users.
- *  input: $value Integer or string that can be parsed as an int.
- *  output: string (eg: "1.00400000")
- */
-function convertToBTCFromSatoshi($value){
-    return bcdiv( intval($value), 100000000, 8 );
-}
-
-
+include('functions.php');
+//Get Balance from address
 $have = getBalance('1F2FtaA3SWSJjUwsmPqRYNpunjVpqJFJhK');
-//echo 'Address Balance: ' . getBalance('1F2FtaA3SWSJjUwsmPqRYNpunjVpqJFJhK');
-
+//Set a target
 $target = 100000000;
-
+//Get the progression in %
 $goal = $have / $target * 100;
-
-
-
+//Turn it into a animation
 $stylegoal = '<span style="width: '.$goal.'%"></span>';
-
-
-
+//Set the Goal and Targets in BTC for display purpose.
 $btcHave = convertToBTCFromSatoshi($have);
 $btcGoal = convertToBTCFromSatoshi($target);
 
 ?>
+<!-- Display the page! -->
 </head>
 <body>
 <div id="wrap">
