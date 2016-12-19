@@ -1,6 +1,13 @@
+body{
+	background-color: #f0f8ff;
+	}
 #wrap {
+	color: white;
     width: 800px;
     margin: 0 auto;
+	background-color: #b3dbff;
+	border-radius: 15px;
+	padding: 20px;
 }
 .meter {
     height: 20px;
