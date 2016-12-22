@@ -18,7 +18,11 @@
 		});
 	</script>
 <?php
-
+//Start Session to enable user login
+session_start();
+//Include Database connection. For future Features
+include('db.php');
+//Include functions for calling them later
 include('functions.php');
 //Get Balance from address
 $have = getBalance('1F2FtaA3SWSJjUwsmPqRYNpunjVpqJFJhK');
@@ -39,9 +43,10 @@ $btcGoal = convertToBTCFromSatoshi($target);
 <div id="wrap">
 <h2>ROI/TARGET: <?php echo $btcGoal ?></h2>
 <h3>Gespaard: <?php echo $btcHave; ?></h3>
+<h4><?php echo round($goal,2); ?>% of Total</h4>
 	<div class="meter">
-			<?php echo $stylegoal; ?>
-		</div>
+		<?php echo $stylegoal; ?>
+	</div>
 
 </div>
 </body>
