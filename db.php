@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "toor";
 $db = "btsaver";
 
 // Create connection

@@ -9,6 +9,15 @@ body{
 	border-radius: 15px;
 	padding: 20px;
 }
+#menu {
+	color: white;
+    width: 800px;
+    margin: 0 auto;
+	margin-bottom: 5px;
+	background-color: #b3dbff;
+	border-radius: 15px;
+	padding: 20px;
+}
 .meter {
     height: 20px;
     /* Can be anything */
