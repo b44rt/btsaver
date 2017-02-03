@@ -43,6 +43,44 @@ function getMyPlans(){
 	}
     
 }
+/** Fetches BTC USD Price from BitPay.
+ *  input: No input
+ *  output: float USD rate.
+ */
+function getBtcPrice(){
+  $url = "https://bitpay.com/api/rates";
+
+  $json = file_get_contents($url);
+  $data = json_decode($json, TRUE);
+
+  $rate = $data[1]["rate"];    
+  return $rate;
+}
+
+/** Logs given input to a log file in the log folder. Marked by the date. 
+*	input: string. This input will be logged along with a timestamp of logging.
+*	output: a text file in /logs dd-mm-yyyyy.log
+*/
+function logAction($action){
+	$visip = $_SERVER['REMOTE_ADDR'];
+	$text = $action;
+	$reqpage = $_SERVER['REQUEST_URI'];
+	$now = date("d-m-Y h:i:s");
+	$today = date("d-m-Y");
+	$filename = $today.'.log';
+	$myfile = fopen($filename, "a") or die("Unable to open file!");
+	fwrite($myfile, "\r\n[". $now ."]". " ||IP: ". $visip . " ||Request: ". $reqpage . " ||Message : ".$text);
+	fclose($myfile);
+}
+/** Checks if a user is logged in. Returns to index when False. Call this function on any page with no arguments.
+*	input: -
+*	output: -
+*/
+function makeSecure(){
+	//aars
+}
+
+//werkt nog niet naar behoren
 function getPlansByUserId(){
 	if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

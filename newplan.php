@@ -30,16 +30,18 @@ if(!empty($_POST['submit']))
 	}
 
 	$conn->close();
+	logAction("Plan added: ".$descr);
 }
 else
 {
-	echo 'No DATA';
+	//echo 'No DATA';
 }
 
 ?>
 <!-- Display the page! -->
 </head>
 <body>
+<?php include('menu.php'); ?>
 <div id="wrap">
 <h2>New Plan</h2>
 <table>

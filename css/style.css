@@ -18,6 +18,9 @@ body{
 	border-radius: 15px;
 	padding: 20px;
 }
+p {
+	color: black;
+}
 .meter {
     height: 20px;
     /* Can be anything */
@@ -114,4 +117,27 @@ body{
 .nostripes > span:after {
     -webkit-animation: none;
     background-image: none;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111111;
 }

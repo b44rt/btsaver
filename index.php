@@ -24,29 +24,15 @@ session_start();
 include('db.php');
 //Include functions for calling them later
 include('functions.php');
-//Get Balance from address
-$have = getBalance('1F2FtaA3SWSJjUwsmPqRYNpunjVpqJFJhK');
-//Set a target
-$target = 100000000;
-//Get the progression in %
-$goal = $have / $target * 100;
-//Turn it into a animation
-$stylegoal = '<span style="width: '.$goal.'%"></span>';
-//Set the Goal and Targets in BTC for display purpose.
-$btcHave = convertToBTCFromSatoshi($have);
-$btcGoal = convertToBTCFromSatoshi($target);
-
+logAction("page loaded.");
+//print_r($_SERVER);
 ?>
 <!-- Display the page! -->
 </head>
 <body>
+<?php include('menu.php'); ?>
 <div id="wrap">
-<h2>ROI/TARGET: <?php echo $btcGoal ?></h2>
-<h3>Gespaard: <?php echo $btcHave; ?></h3>
-<h4><?php echo round($goal,2); ?>% of Total</h4>
-	<div class="meter">
-		<?php echo $stylegoal; ?>
-	</div>
+
 
 </div>
 </body>

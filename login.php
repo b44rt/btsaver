@@ -5,8 +5,8 @@ if(!empty($_POST['submit']))
 {
 	session_start();//Om de user in te loggen als alles klopt.
 	include('db.php');//We hebben straks de DB nodig om te kijken of de user/password combi bestaat.
-	$username = $_POST['username']; //POST Data verplaatsen naar normale var
-	$password = md5($_POST['password']);//Serverside encryption slecht, via javascript door client laten hashen.
+	$username = mysqli_real_escape_string($_POST['username']); //POST Data verplaatsen naar normale var
+	$password = mysqli_real_escape_string(md5($_POST['password']));//Serverside encryption slecht, via javascript door client laten hashen.
 	//DB call om gegevens te controlleren, daarna user ID in een sessie VAR gooien.
 	$sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 	$result = $conn->query($sql);
